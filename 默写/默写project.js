@@ -20,5 +20,9 @@ class Promise {
         this.onRejectedCallbacks.foreach(fn=>fn())
       }
     }
+
+    try {
+      
+    }
   }
 }
