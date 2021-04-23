@@ -32,10 +32,11 @@ class Mypromise {
       reject(err)
     }
   }
-  then(onFullFilled, onRejected) {
+
+  then(onResolved, onRejected) {
     // 同步
     if (this.status == 'fullFilled') {
-      onFullFilled(this.value)
+      onResolved(this.value)
     }
     if (this.status == 'rejected') {
       onRejected(this.reason)
@@ -45,7 +46,7 @@ class Mypromise {
       // 在pending状态的时候先订阅
       this.onResolvedCallbacks.push(() => {
         // todo
-        onFullFilled(this.value)
+        onResolved(this.value)
       })
       this.onRejectedCallbacks.push(() => {
         // todo

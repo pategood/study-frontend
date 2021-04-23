@@ -8,7 +8,7 @@ class Promise {
 
     function resolve(data) {
       // 状态只能修改一次
-      if (self.PromiseState !=== 'pending') return;
+      if (self.PromiseState !== 'pending') return;
       self.PromiseState= 'fulfilled';//resolved
       self.PromiseResult =data;
       // 调用成功的回调函数
@@ -22,7 +22,7 @@ class Promise {
     // reject 
     function reject(data) {
       //状态只能修改一次
-      if(self.PromiseState ===! 'pending') return;
+      if(self.PromiseState !== 'pending') return;
       //修改对象状态
       self.PromiseState= 'rejected';
 
@@ -48,15 +48,15 @@ class Promise {
   then(onResolved,onRejected) {
     const self =this;
     //判断回调函数参数
-    if (typeof onRejected !=== 'function') {
+    if (typeof onRejected !== 'function') {
       onRejected =reason => {
         throw reason
       }
     }
-    if (typeof onResolved !=== 'function'){
+    if (typeof onResolved !== 'function'){
       onResolved = value =>value;
     }
-    return new Promise(resolve,reject)=>{
+    return new Promise((resolve,reject)=>{
       //封装函数
       function callback(type) {
         try {
@@ -74,7 +74,7 @@ class Promise {
           reject(e)
         }
       }
-    }
+    })
   }
   
 }
