@@ -1,0 +1,13 @@
+设置HttpOnly为true
+
+1、该属性值的作用就是防止Cookie值被页面脚本读取。
+
+2、但是设置HttpOnly属性，HttpOnly属性只是增加了攻击者的难度，Cookie盗窃的威胁并没有彻底消除，
+   因为cookie还是有可能传递的过程中被监听捕获后信息泄漏。
+
+设置Secure为true
+
+1、给Cookie设置该属性时，只有在https协议下访问的时候，浏览器才会发送该Cookie。
+
+2、把cookie设置为secure，只保证cookie与WEB服务器之间的数据传输过程加密，
+   而保存在本地的cookie文件并不加密。如果想让本地cookie也加密，得自己加密数据。

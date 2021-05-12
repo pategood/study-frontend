@@ -1,3 +1,30 @@
+// 一行代码实现深拷贝:
+
+// let objCopy = JSON.parse(JSON.stringify(obj));
+
+// 缺点: 
+//  只适用于一般数据的拷贝（对象、数组)
+//  
+// 一.如果json里面有RegExp,Error对象,则序列化后
+//    得到的知识空对象RegExp、Error => {}；
+
+// 二.如果json里有 function,undefined，则序列化
+//    的结果会把 function,undefined 丢失； 就没了
+
+// 三.如果json里有NaN、Infinity和-Infinity，则   (Infinity正无穷的数值)
+// 序列化的结果会变成null；
+
+// 四.如果json里有对象是由构造函数生成的，则序列化
+//    的结果会丢弃对象的 constructor；
+
+// 五.如果obj里面有时间对象，则序列化后的结果
+//    时间将只是字符串的形式。而不是时间对象；
+// 
+
+
+
+
+
 // 浅拷贝的实现;
 
 function shallowCopy(object) {

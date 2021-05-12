@@ -15,7 +15,7 @@ class Promise {
     }
 
     let reject=(value)=>{
-      if(this.status=='panding') {
+      if(this.status=='pending') {
         this.status='rejected'
         this.onRejectedCallbacks.foreach(fn=>fn())
       }
