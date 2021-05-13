@@ -1,0 +1,28 @@
+ 
+有继承性的属性：
+
+1.关于字体的设置
+  font   font-weight  font-style
+  font-size等等
+ 
+ 
+2.文本系列
+  text-indent 文本缩进
+  line-height：行高
+  color：文本颜色
+
+3.
+  元素可见性：visibility
+
+
+所有元素可以继承的属性：
+
+1、元素可见性：visibility、opacity2、光标属性：cursor
+
+内联元素可以继承的属性:
+
+1、字体系列属性2、除text-indent、text-align之外的文本系列属性
+
+块级元素可以继承的属性:
+
+1、text-indent、text-align

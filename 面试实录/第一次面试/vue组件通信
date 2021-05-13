@@ -1,0 +1,40 @@
+一.
+通信方式: eventBus
+
+使用eventBus传递数据,我们一共需要做3件事情
+
+1.给app组件添加Bus属性 (这样所有组件都可以通过this.$root.Bus访问到它,而且不需要引入任何文件)
+2.在组件1里,this.$root.Bus.$emit触发事件
+3.在组件2里,this.$root.Bus.$on监听事件
+
+二.利用localStorage或者sessionStorage
+
+缺点是数据和状态比较混乱,不太容易维护。
+
+通过window.localStorage.getItem(key) 获取数据
+通过window.localStorage.setItem(key,value) 存储数据
+
+注意用JSON.parse() / JSON.stringify() 做数据格式转换。
+
+
+三.利用Vuex
+
+
+四.父子组件通信
+
+子组件用props接受数据,就可以直接使用数据
+用$emit触发父组件的事件来修改数据
+
+
+五.$emit/$on
+
+这种方法通过一个空的Vue实例作为中央事件总线（事件中心），
+用它来触发事件和监听事件,巧妙而轻量地实现了任何组件间的通信，包括父子、兄弟、跨级。
+
+具体实现方法:
+    var Event=new Vue();
+    Event.$emit(事件名,数据);
+    Event.$on(事件名,data => {});
+
+  $on 监听了自定义事件 data-a和data-b，因为有时不确定何时会触发事件，
+    一般会在 mounted 或 created 钩子中来监听。
