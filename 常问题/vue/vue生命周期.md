@@ -13,7 +13,7 @@ beforeUpdate    数据发生更新后才会执行,此时data1被修改,但页面
 
 
 
-一般在 created（或beforeRouter） 里面就可以，如果涉及到需要页面加载完成之后的话就用 mounted。
+一般在 created（或beforeMount） 里面就可以，如果涉及到需要页面加载完成之后的话就用 mounted。
 
 
 在created的时候，视图中的html并没有渲染出来，所以此时如果直接去操作html的dom节点，一定找不到相关的元素
