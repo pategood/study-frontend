@@ -1,0 +1,74 @@
+vue3与vue2生命周期的区别
+  
+  vue3兼容vue2选项api,所以vue2的生命周期钩子  vue3里面也能用
+
+  vue3生命周期:
+    vue3的生命周期钩子需要导入到项目中,
+
+
+beforeCreate -> 使用 setup()
+
+created -> 使用 setup()
+
+beforeMount -> onBeforeMount
+
+mounted -> onMounted
+
+beforeUpdate -> onBeforeUpdate
+
+updated -> onUpdated
+
+beforeDestroy -> onBeforeUnmount
+
+destroyed -> onUnmounted
+
+errorCaptured -> onErrorCaptured
+
+
+    
+    beforecate和created(它们被setup方法本身所取代)，
+      我们可以在setup方法中访问的API生命周期钩子有9个选项:
+
+    onBeforeMount – 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    
+    onMounted – 组件挂载时调用
+    
+    onBeforeUpdate  – 数据更新时调用，发生在虚拟 DOM 打补丁之前。
+        这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。
+
+    onUpdated  –  由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+
+
+    onBeforeUnmount –  在卸载组件实例之前调用。在这个阶段，实例仍然是完全正常的。
+
+
+    onUnmounted – 卸载组件实例后调用。调用此钩子时，组件实例的所有指令都被解除绑定，所有事件侦听器都被移除，所有子组件实例被卸载。
+
+
+    onActivated  –  被 keep-alive 缓存的组件激活时调用。
+
+
+    onDeactivated – 被 keep-alive 缓存的组件停用时调用。
+
+
+    onErrorCaptured  当捕获一个来自子孙组件的错误时被调用。
+      此钩子会收到三个参数：错误对象、发生错误的组件实例以及一个包含错误来源信息的字符串。
+      此钩子可以返回 false 以阻止该错误继续向上传播
+
+
+
+  多了两个调试用的生命周期钩子
+    renderTracked  追踪变化
+
+      onRenderTracked直译过来就是状态跟踪，
+      它会跟踪页面上所有响应式变量和方法的状态，也就是我们用return返回去的值，
+      它都会跟踪。只要页面有update的情况，它就会跟踪，
+      然后生成一个event对象，我们通过event对象来查找程序的问题所在。
+
+    renderTriggered    (界面更新)
+
+    onRenderTriggered直译过来是状态触发，它不会跟踪每一个值，而是给你变化值的信息，
+    并且新值和旧值都会给你明确的展示出来。
+
+    如果把onRenderTracked比喻成散弹枪，每个值都进行跟踪，
+    那onRenderTriggered就是狙击枪，只精确跟踪发生变化的值，进行针对性调试。
