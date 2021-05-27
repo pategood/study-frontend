@@ -1,0 +1,2 @@
+双向响应原理由Object.defineProperty改为基于ES6的Proxy
+

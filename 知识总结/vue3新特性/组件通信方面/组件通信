@@ -1,0 +1,22 @@
+在Vue2.x中可以通过EventBus的方法来实现组件通信
+
+// 声明实例
+var EventBus = new Vue()
+Vue.prototype.$globalBus = EventBus
+// 组件内调用
+this.$globalBus.$on('my-event-name', callback)
+this.$globalBus.$emit('my-event-name', data)
+
+
+在vue3.x中移除了 $on、$off等方法，而是推荐使用mitt方案来代替：
+
+// 声明实例
+import mitt from 'mitt'
+const emitter = mitt()
+// 组件内调用
+// listen to all events
+emitter.on('*', (type, e) => console.log(type, e))
+emitter.on('my-event-name', callback)
+emitter.emit('my-event-name', data)
+// clearing all events
+emitter.all.clear()

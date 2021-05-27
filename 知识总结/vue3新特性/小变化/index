@@ -1,0 +1,14 @@
+vue3.x 生产环境 ctx
+
+生产环境的ctx，$router、$store没有了，其他属性也都没有了，
+不能通过ctx.$router、ctx.$store访问router和store，
+因此ctx可以说对我们没有用，应该避免在代码中使用ctx
+
+
+
+执行顺序
+
+vue3.x中会先执行setup方法，再执行兼容2.x的其他方法，
+比如data、computed、watch等，
+
+并且在setup执行过程中，无法访问data中定义的属性，因为此时还未执行到data方法

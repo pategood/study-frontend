@@ -14,30 +14,31 @@
 // 2、全局变量污染作用域
 
 
+
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
-      var context = this, args = arguments;
-      var later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-      };
-      //保证是首次触发并且是立即执行
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    //保证是首次触发并且是立即执行
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
   };
 };
 
-var myEfficientFn = debounce(function() {
+var realFun = debounce(function() {
   // 滚动中的真正的操作
   console.log('222');
 }, 250);
 
 // 绑定监听
-input.addEventListener('keyup',myEfficientFn)
-window.addEventListener('resize', myEfficientFn);
+input.addEventListener('keyup',realFun)
+window.addEventListener('resize', realFun);
 
 
 // 节流

@@ -1,9 +1,11 @@
-vue3与vue2生命周期的区别
-  
-  vue3兼容vue2选项api,所以vue2的生命周期钩子  vue3里面也能用
+vue3与vue2生命周期的区别'
+
+
+  vue3兼容vue2选项api,所以vue2的生命周期钩子  vue3里面也能用  
 
   vue3生命周期:
-    vue3的生命周期钩子需要导入到项目中,
+    vue3的生命周期钩子需要导入到项目中,类似于按需导入使用
+
 
 
 beforeCreate -> 使用 setup()
@@ -42,8 +44,7 @@ errorCaptured -> onErrorCaptured
     onBeforeUnmount –  在卸载组件实例之前调用。在这个阶段，实例仍然是完全正常的。
 
 
-    onUnmounted – 卸载组件实例后调用。调用此钩子时，组件实例的所有指令都被解除绑定，
-                  所有事件侦听器都被移除，所有子组件实例被卸载。
+    onUnmounted – 卸载组件实例后调用。调用此钩子时，组件实例的所有指令都被解除绑定，所有事件侦听器都被移除，所有子组件实例被卸载。
 
 
     onActivated  –  被 keep-alive 缓存的组件激活时调用。

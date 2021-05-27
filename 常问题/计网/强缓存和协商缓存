@@ -12,7 +12,8 @@
 强缓存总结
 1.cache-control: max-age=xxxx，public
   客户端和代理服务器都可以缓存该资源；
-  客户端在xxx秒的有效期内，如果有请求该资源的需求的话就直接读取缓存,statu code:200 ，如果用户做了刷新操作，就向服务器发起http请求
+  客户端在xxx秒的有效期内， 如果有请求该资源的需求的话就直接读取缓存,statu code:200 ，
+                          如果用户做了刷新操作，就向服务器发起http请求
 
 2.cache-control: max-age=xxxx，private
   只让客户端可以缓存该资源；代理服务器不缓存
@@ -36,7 +37,7 @@
       last-modified: Mon, 24 Dec 2018 09:49:49 GMT
 
 
-  每次请求返回来 response header 中的 etag和 last-modified，
+  每次请求返回来 response header 中都有 etag和 last-modified，
   在下次请求时在 request header 就把这两个带上，服务端把你带过来的标识进行对比，
   然后判断资源是否更改了，
   如果更改就直接返回新的资源，和更新对应的response header的标识etag、last-modified。

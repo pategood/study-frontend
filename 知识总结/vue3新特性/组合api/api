@@ -1,0 +1,7 @@
+由之前的options API 更换成 Composition API
+
+
+
+Vue2 传统的 data，computed，watch，methods 写法，我们称之为「选项式api（Options API ）」
+Vue3 使用 Composition API （VCA）可以根据逻辑功能来组织代码，一个功能相关的 api 会放在一起。
+
